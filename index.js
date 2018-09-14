@@ -3,6 +3,7 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = (botconfig.prefix)
+const talkedRecently = new Set();
 
 //Confirms the bot is online
 client.on("ready", () => {
@@ -13,13 +14,14 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if (message.content.startsWith(prefix + "ping")) {
     message.reply("pong!");
+    }
   }
 });
 
 //basic reply command with user mention
 client.on("message", (message) => {
   if (message.content.startsWith(prefix + "hello")) {
-    message.channel.send("owo, hello ${sent.author.username}");
+    message.channel.send("owo, hello " + message.author.toString());
   }
 });
 
@@ -30,20 +32,10 @@ client.on("message", (message) => {
  }
 });
 
-//Bot information reply
+//DM command
 client.on("message", (message) => {
-  if (message.content.statsWith(prefix + "info")) {
-    const botembed = new RichEmbed()
-    const bicon = bot.user.displayAvatarURL;
-      .setTitle("FinleyBot Information")
-      .setColor("#428ff4")
-      .setThumbnail(bicon)
-      .addField("Bot Name", bot.user.username)
-      .addField("Discription", "A bot that might do many things one day, only time will tell")
-      .addField("Created By", "FinleyBot Team")
-      .addField("Created On", bot.user.createdAt);
-
-    message.channel.send(botembed)
+  if (message.content.startsWith(prefix + "private")) {
+    message.author.send("meow");
   }
 })
 
