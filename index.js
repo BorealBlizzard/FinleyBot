@@ -30,5 +30,22 @@ client.on("message", (message) => {
  }
 });
 
+//Bot information reply
+client.on("message", (message) => {
+  if (message.content.statsWith(prefix + "info")) {
+    const botembed = new RichEmbed()
+    const bicon = bot.user.displayAvatarURL;
+      .setTitle("FinleyBot Information")
+      .setColor("#428ff4")
+      .setThumbnail(bicon)
+      .addField("Bot Name", bot.user.username)
+      .addField("Discription", "A bot that might do many things one day, only time will tell")
+      .addField("Created By", "FinleyBot Team")
+      .addField("Created On", bot.user.createdAt);
+
+    message.channel.send(botembed)
+  }
+})
+
 client.login(botconfig.token);
 }
