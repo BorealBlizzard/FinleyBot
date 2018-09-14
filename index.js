@@ -16,13 +16,13 @@ client.on("message", (message) => {
 
 client.on("message", (message) => {
   if (message.content.startsWith(prefix + "hello")) {
-    message.channel.send("owo meow");
+    message.channel.send("owo, hello" + message.author.username);
   }
 });
 
 client.on("message", (message) => {
   if (message.content.startsWith(prefix + "panzer vor")) {
-    message.channel.send("Jawohl, Start Panzerkampfwagen VI Tiger Ausf. E ", {files: ["./images/TigerI.png"]} );
+    message.channel.send("Jawohl, Start Panzerkampfwagen VI Tiger Ausf. E ", {files: ["./images/TigerI.png"] });
  }
 });
 
