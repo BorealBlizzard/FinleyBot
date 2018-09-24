@@ -1,9 +1,10 @@
 {
-const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = (botconfig.prefix);
+const fs = require("fs");
 
+const botconfig = require("./botconfig.json");
+const prefix = (botconfig.prefix);
 
 //  Confirms the bot is online
 client.on("ready", async () => {
@@ -14,34 +15,34 @@ client.on("ready", async () => {
 
 
 client.on("message", (message) => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-//  basic Ping/Pong command
-  if (message.content.startsWith(`${prefix}ping`)) {
-    message.reply("pong!");
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
 
-} else
 
-//  basic reply command with user mention
-  if (message.content.startsWith(`${prefix}hello`)) {
+//  >ping
+  if (command === 'ping') {
+    message.reply('Pong!');
+  } else
+
+//  >hello
+  if (command === `hello`) {
     message.channel.send(`owo, hello ${message.author}`);
-
   } else
 
-//  panzer vor meme
-  if (message.content.startsWith(prefix + "panzer vor") ){
+//  >panzer vor
+  if (command === `panzer vor`) {
     message.channel.send("Jawohl, Start Panzerkampfwagen VI Tiger Ausf. E ", {files: ["./images/TigerIKat.png"] });
-
   } else
 
-//  DM command
-  if (message.content.startsWith(prefix + "private")) {
+//  >private
+  if (command === `private`) {
     message.author.send("meow");
-
   } else
 
-//  Woah Mama
-  if (message.content.startsWith(prefix + "woahmama")) {
+//  >woahmama
+  if (command === `private`) {
     message.channel.send({files: ["./images/WoahMama.png"] });
 
   }
