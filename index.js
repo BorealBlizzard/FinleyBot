@@ -30,5 +30,5 @@ client.on("message", (message) => {
 });
 
 
-client.login(botconfig.token);
+client.login(process.env.TOKEN);
 }
