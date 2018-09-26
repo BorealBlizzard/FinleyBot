@@ -10,6 +10,8 @@
   "author": "Jacob",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "cleverbot.io": "^1.0.4",
+    "discord.js": "^11.4.2",
+    "superagent": "^4.0.0-beta.5"
   }
 }
