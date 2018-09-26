@@ -7,4 +7,5 @@ Funny commands
 This bot can be used by anyone, it is currently being hosted using Glitch.com so the files are currently set up for it. 
 ##
 **Upcoming features**
-- who knows
+- Maybe Music Bot capabilties
+- 
