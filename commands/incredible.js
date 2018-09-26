@@ -1,3 +1,3 @@
-exports.run = (client, message, args) => {
-  message.channel.send("haha *yes*", {files: ["https://imgur.com/Eka19KY"]}).catch(console.error);
+exports.run = async (client, message, args) => {
+  message.channel.send("haha *yes*", {files: ["https://i.imgur.com/drnaPzg.jpg"]}).catch(console.error);
 }
